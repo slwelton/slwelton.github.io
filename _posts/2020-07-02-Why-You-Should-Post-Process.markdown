@@ -3,7 +3,7 @@ layout: post
 title: Why You Should Be Post-Processing Your Photos
 date: 2020-07-02 19:03:30 + 0800
 image: PP_Post_Head.jpg
-tags: [Writing Samples, Photography, Adobe Lightroom, Writing Samples, My Work]
+tags: [Writing Samples, Photography, Adobe Lightroom, My Work]
 comments: true
 ---
 When I first started playing around with a camera, I didn't think that I needed to do any post-processing to my photos. I was under the impression that in order to take a good photo, it had to be perfect, right from the camera.

@@ -3,7 +3,7 @@ layout: post
 title: How to Edit Photos in Lightroom
 date: 2020-07-02 19:03:30 + 0800
 image: DSC_0758_AFTER.jpg
-tags: [Writing Samples, Photography, Adobe Lightroom, Writing Samples, My Work]
+tags: [Writing Samples, Photography, Adobe Lightroom, My Work]
 comments: true
 ---
 When I first started out with taking photos with my DSLR, I wasn't doing anything to edit or fine-tune my results. Usually, whatever I got out of my camera was what I would share.
