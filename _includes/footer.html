@@ -4,7 +4,7 @@
       <div class="col col-12">
         <div class="footer-top">
           <h2 class="logo-title">
-            <a href="{{site.baseurl}}/" class="logo-text">Welton Writes + BlueBoots Photography</a>
+            <a href="{{site.baseurl}}/" class="logo-text">Welton Writes</a>
           </h2>
           <div class="top"><i class="ion ion-ios-arrow-up"></i></div>
         </div>
@@ -15,20 +15,13 @@
           </div>
           <div class="footer-social">
             <ul class="list-reset">
+
+              {% if site.linkedin %}
+              <li><a href="{{ site.linkedin }}">LinkedIn</a></li>
+              {% else %} {% endif %}
+
               {% if site.medium %}
               <li><a href="{{ site.medium }}">Medium</a></li>
-              {% else %} {% endif %}
-
-              {% if site.vocal %}
-              <li><a href="{{ site.vocal }}">Vocal</a></li>
-              {% else %} {% endif %}
-
-              {% if site.facebook %}
-              <li><a href="{{ site.facebook }}">Facebook</a></li>
-              {% else %} {% endif %}
-
-              {% if site.twitter %}
-              <li><a href="{{ site.twitter }}">Twitter</a></li>
               {% else %} {% endif %}
 
               {% if site.instagram %}
@@ -39,9 +32,10 @@
               <li><a href="{{ site.500px }}">500px</a></li>
               {% else %} {% endif %}
 
-              {% if site.linkedin %}
-              <li><a href="{{ site.linkedin }}">LinkedIn</a></li>
+              {% if site.twitter %}
+              <li><a href="{{ site.twitter }}">Twitter</a></li>
               {% else %} {% endif %}
+              
             </ul>
           </div>
         </div>
