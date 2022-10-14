@@ -1,8 +1,8 @@
 #-------------------------------
 # General Site Settings
 
-title: Welton Writes + BlueBoots Photography
-description: English/Art/Code - This is the home of Welton Writes and BlueBoots Photography, a blog and portfolio for Sarah Welton. # this means to ignore newlines until "baseurl:"
+title: Welton Writes
+description: English/Art/Code - This is the home of Welton Writes, a blog and portfolio for Sarah Welton. # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://slwelton.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
