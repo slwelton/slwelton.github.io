@@ -7,9 +7,38 @@ layout: default
             <div class="page-head">
                 <h1 class="page-title">{{ page.title | escape }}</h1>
             </div>
-
+            
             <div class="page-body">
-                {{ content }}
+                <p>The following are writing samples from past work, whether at a job or on a personal project.</p>
+                <div class="container">
+                <div class ="col col-12 col-t-8">
+                <div class="row">
+                    {% for page in site.pages %}
+                      {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' %}
+                    {% if page.title %}
+                    <article class="article col col-12 col-t-6">
+                        <div class="article-box">
+                            <div class="article-head">
+                                <a href="{{ page.url | prepend: site.baseurl }}" class="article-image" style="background-image: url({{"/img/" | prepend: site.baseurl | append : page.image}})">
+                                    <div class="image-overlay">
+                                        <span class="image-overlay-text">{{page.title | slice: 0}}</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="article-content">
+                                <h2 class="article-title">
+                                    <a href="{{ post.url | prepend: site.baseurl }}">{{post.title}}</a>
+                                </h2>
+                                <p class="article-excerpt">{{ page.content | strip_html | truncate: 135 }}</p>
+                            </div>
+                        </div>
+                    </article>
+                    {% endif %}
+                      {% endunless %}
+                    {% endfor %}
+                </div>
+                </div>
+            </div>
             </div>
         </div>
     </article> <!-- /.page -->

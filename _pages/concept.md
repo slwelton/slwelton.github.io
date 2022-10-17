@@ -1,11 +1,9 @@
 ---
 layout: samples
 title: Concept Writing Sample
-permalink: /samples/concept/
+permalink: /concept/
 ---
-[<< Back to Writing Samples](/samples)
-
-# Context
+<a href="/samples"><< Back to Writing Samples</a>
 
 I wrote this conceptual topic while I was at Unity Technologies. It explains the two different types of graphs used in Visual Scripting.
 

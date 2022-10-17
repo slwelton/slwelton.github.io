@@ -1,11 +1,9 @@
 ---
 layout: samples
 title: Procedure Writing Sample
-permalink: /samples/procedure/
+permalink: /procedure/
 ---
-[<< Back to Writing Samples](/samples)
-
-# Context 
+<a href="/samples"><< Back to Writing Samples</a>
 
 I wrote this procedure when I was at Unity Technologies. It describes how to open a Visual Scripting graph file from multiple locations inside the Unity Editor. 
 
