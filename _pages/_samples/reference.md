@@ -3,7 +3,6 @@ layout: samples
 title: Reference Writing Sample
 permalink: /reference/
 ---
-<a href="/samples"><< Back to Writing Samples</a>
 
 I wrote this reference topic as a part of the Node Library for Shader Graph at Unity Technologies. It lays out the information a user would need to use the node in a Shader Graph file.
 

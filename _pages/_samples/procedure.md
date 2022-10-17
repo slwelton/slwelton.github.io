@@ -3,7 +3,6 @@ layout: samples
 title: Procedure Writing Sample
 permalink: /procedure/
 ---
-<a href="/samples"><< Back to Writing Samples</a>
 
 I wrote this procedure when I was at Unity Technologies. It describes how to open a Visual Scripting graph file from multiple locations inside the Unity Editor. 
 
