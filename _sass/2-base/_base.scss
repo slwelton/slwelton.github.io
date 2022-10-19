@@ -211,3 +211,15 @@ table td {
 table tr:hover {
   background-color: $white;
 }
+
+// Notes and Tips 
+
+div.NOTE {
+  padding: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color:#31708f;
+  background-color:#d9edf7;
+  border-color: #bce8f1;
+}
+
