@@ -1,10 +1,11 @@
 ---
 layout: samples
-title: Procedure Writing Sample
+title: 'Procedure Writing Sample #1'
+image: ../img/vs-open-project-window-graph-files.png
 permalink: /procedure/
 ---
 
-I wrote this procedure when I was at Unity Technologies. It describes how to open a Visual Scripting graph file from multiple locations inside the Unity Editor. 
+I wrote this procedure while I was at Unity Technologies. It describes how to open a Visual Scripting graph file from multiple locations inside the Unity Editor. 
 
 # Open a graph file
 

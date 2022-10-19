@@ -1,7 +1,7 @@
 ---
 layout: samples
-title: Concept Writing Sample
-image: ../../vs-understanding-nodes-example.png
+title: 'Concept Writing Sample #1'
+image: ../img/vs-understanding-nodes-example.png
 permalink: /concept/
 ---
 
