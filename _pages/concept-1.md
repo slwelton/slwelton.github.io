@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: 'Concept Writing Sample #1'
+title: 'Concept Documentation Writing Sample #1'
 image: ../img/vs-understanding-nodes-example.png
 permalink: /concept/
 ---

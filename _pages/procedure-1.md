@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: 'Procedure Writing Sample #1'
+title: 'Procedure Documentation Writing Sample #1'
 image: ../img/vs-open-project-window-graph-files.png
 permalink: /procedure/
 ---

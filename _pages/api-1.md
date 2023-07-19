@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: 'API Writing Sample #1'
+title: 'API Documentation Writing Sample #1'
 image: 
 permalink: /api/
 ---

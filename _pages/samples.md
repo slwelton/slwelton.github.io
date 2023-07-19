@@ -1,6 +1,6 @@
 ---
 layout: sample-list
-title: Writing Samples
+title: Samples
 permalink: /samples/
 ---
 
