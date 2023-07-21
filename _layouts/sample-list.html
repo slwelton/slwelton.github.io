@@ -11,7 +11,6 @@ layout: default
             <div class="page-body">
                 <p>The following are writing or other content samples from past work, whether at a job or on a personal project.</p>
                 <br/>
-                <br/>
                 <div class="container">
                 <div class ="col col-12">
                 <div class="sample-section">
@@ -48,7 +47,7 @@ layout: default
                 </div>
                 <div class="row">
                     {% for page in site.pages %}
-                      {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' or page.name contains "style-guide" %}
+                      {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' or page.name contains "style-guide" or page.name contains "content-design" %}
                     {% if page.title %}
                     <article class="article col col-12 col-t-6">
                         <div class="article-box">
