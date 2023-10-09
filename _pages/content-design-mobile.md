@@ -2,7 +2,7 @@
 layout: samples
 title: 'Content Design Sample #2 - Mobile App Copy'
 image: ../img/jobpay-onboarding-1.png
-permalink: /content-design/
+permalink: /content-design-mobile/
 ---
 
 The following is a brief breakdown of mobile app UI copy that I created as a final capstone project for the [UX Writing Fundamentals](https://uxcontent.com/uxwc-the-fundamentals-course/) course offered by the UX Content Collective. The course was designed to provide an overview of what it's like to work in the content design discipline, breaking down the fundamentals of good UX writing practice and providing an opportunity to write all the copy for an imaginary application. 
@@ -39,7 +39,7 @@ Next was actually collecting the user information during the onboarding process:
 
 To use the app, the designs indicated that we needed the user's full name, an email address, and a password. 
 
-For the first screen, I wanted to strike a friendly tone with using "Tell us about you." In my style guide, I had decided that I wanted form labels to be in the form of questions, so I used that for the full name field. 
+For the first screen, I wanted to strike a friendly tone with using "Tell us about you."
 
 I used some hint text to tell the user what we were expecting, trying to use a gender-neutral name, and a brief explanation about why the full name was being requested to ease any concerns. 
 
@@ -55,4 +55,26 @@ The last of the onboarding screens is the log-in screen:
 
 ![](../../img/jobpay-onboarding-3.png)
 
-I almost missed on consistency with the form labels, but thankfully caught that at the last second. Phew. Simple, clean, consistent with the patterns elsewhere in the app (so far).
+### Freelancer Flows 
+
+I had to add a lot of extra screens to the freelancer flows to make the content make sense, because the actions were missing from the provided designs. 
+
+I focused on establishing the language that would be shared across the freelancer and business flows, and guiding the freelancer through setting up and managing projects. 
+
+It was made quite clear that the freelancers would probably be more nervous than the business owners, so I wanted to strike a friendly and encouraging tone to keep them motivated through the set-up and different flows. 
+
+### Business Owner Flows
+
+For the business owners, I wanted to make sure to keep the same language from the freelancer flows so that the users could make sure that they were talking about the same things in the app. 
+
+I focused on keeping things super simple, even with the added screens. 
+
+Business owners were billed as being the ones growing the community on the app, but not necessarily the main revenue drivers, so I just wanted to keep things as clean and simple as possible for them, to keep them using the app moreso from a standpoint of convenience and ease-of-use. 
+
+I could probably dive into making a proper PayPal flow for both sets of users, but that's a future stretch goal that wasn't required by the project. 
+
+## The Result 
+
+I got some great feedback on my project, which I made sure to incorporate into the final result that I've been presenting here before sharing it with you! I learned a lot from this project, especially along the lines of the errors that I might tend to make and need to watch out for in future projects. 
+
+I passed on my first try and didn't need to resubmit, while still getting a lot of valuable feedback - so, I'd call this project a smashing success. 

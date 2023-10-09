@@ -2,7 +2,7 @@
 layout: samples
 title: 'Content Design Sample #1 - Web App UI Tour'
 image: ../img/capella-ui-tour.png
-permalink: /content-design/
+permalink: /content-design-pendo/
 ---
 
 The following is a brief breakdown of a web app UI tour that I created during my time at Couchbase. The Couchbase Capella application was mainly meant to be used and interacted with on desktop devices.  
