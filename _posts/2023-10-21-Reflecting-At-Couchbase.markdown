@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Reflecting on 16 Months at Couchbase
-date: 2023-10-21 19:03:30 + 0800
-image: Couchbase.png
+date: 2023-10-21 14:03:30 + 0800
+image: Couchbase.jpg
 tags: [My Work, Blog]
 comments: true
 ---
