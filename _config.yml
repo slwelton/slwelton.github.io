@@ -10,15 +10,15 @@ url: "https://slwelton.github.io" # the base hostname & protocol for your site, 
 #-------------------------------
 # About Section
 author-name:   Sarah Welton
-author-avatar: author_avatar.jpg
+author-avatar: img/author_avatar.jpg
 
 
 #-------------------------------
 # Contact links
 medium: https://medium.com/@sarahcerabellum
-twitter:   https://twitter.com/SarahTalksFast # Add your Facebook handle
-instagram: https://www.instagram.com/sarahcerabellum # Add your Facebook handle
-linkedin: https://www.linkedin.com/in/sarah-welton/ # Add your Facebook handle
+twitter:   https://twitter.com/SarahTalksFast
+instagram: https://www.instagram.com/sarahcerabellum 
+linkedin: https://www.linkedin.com/in/sarah-welton/ 
 500px: https://500px.com/sarahwelton
 
 
