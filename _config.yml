@@ -2,23 +2,23 @@
 # General Site Settings
 
 title: Welton Writes
-description: English/Art/Code - This is the home of Welton Writes, a blog and portfolio for Sarah Welton. # this means to ignore newlines until "baseurl:"
+description: English/Art/Code - This is the home of Welton Writes, a blog and portfolio for Sarah Emmett. # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://slwelton.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 
 #-------------------------------
 # About Section
-author-name:   Sarah Welton
+author-name:   Sarah Emmett
 author-avatar: img/author_avatar.jpg
 
 
 #-------------------------------
 # Contact links
-medium: https://medium.com/@sarahcerabellum
+github: https://github.com/sarahlwelton
 twitter:   https://twitter.com/SarahTalksFast
 instagram: https://www.instagram.com/sarahcerabellum 
-linkedin: https://www.linkedin.com/in/sarah-welton/ 
+linkedin: https://www.linkedin.com/in/sarah-welton-emmett/
 500px: https://500px.com/sarahwelton
 
 
