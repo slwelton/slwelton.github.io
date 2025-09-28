@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: 'Reference Documentation Writing Sample #1'
+title: 'Reference - Shader Graph Node Reference'
 image: ../img/sg-calculate-level-detail-texture-2d-node.png
 permalink: /reference/
 ---

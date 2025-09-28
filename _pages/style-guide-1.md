@@ -5,19 +5,24 @@ image: ../img/couchbase-docs-style-guide.png
 permalink: /style-guide/
 ---
 
-During my time at Couchbase, I ended up creating 3 style guides. They all live together on the same website, but I'll break them down in detail, here.
+One of my first major tasks at Couchbase was creating a style guide, to try and get the 10+ person writing team working with greater consistency. 
 
+The first iteration of the style guide was posted on my work GitHub account.
 I created the theme based on the default Antora site theme, adding in some Couchbase styling and elements from the main documentation site. 
 
-## Technical Documentation Style Guide
+You can find that initial version of the style guide at [https://sarahlwelton.github.io/cb-vale-style-guide/styleguide/index.html](https://sarahlwelton.github.io/cb-vale-style-guide/styleguide/index.html). 
 
-When I first arrived, the documentation team didn't have a style guide. I decided that my first mandate was to create their first technical documentation style guide, which can be found at [https://sarahlwelton.github.io/cb-vale-style-guide/styleguide/index.html](https://sarahlwelton.github.io/cb-vale-style-guide/styleguide/index.html).
+After some management changeover and a little more of a serious talk about the importance of the style guide, we incorporated the style guide into our contributor's guide on the main documentation website: [https://docs.couchbase.com/styleguide/index.html](https://docs.couchbase.com/styleguide/index.html).
 
-The style guide also has a Vale implementation, which can be found at [the following GitHub repository](https://github.com/sarahlwelton/cb-vale-style-guide/tree/main/ValeStyles).
+There are 2 other style guides that I tried to create to guide efforts when the documentation team's mandate was larger, and included Pendo and UI copy. You can still view those on the site. 
 
-!["The main page of the Couchbase Technical Documentation Style Guide."](../../img/couchbase-docs-style-guide.png)
+## Vale Style Guide
 
-## UI and UX Style Guide 
+The Couchbase Style Guide also has a [Vale](https://vale.sh) implementation, which you can see here: [https://github.com/couchbaselabs/docs-style-guide](https://github.com/couchbaselabs/docs-style-guide).
+
+I figured out all of the configuration, and have written most of the Vale rules myself, to catch common issues that contradict the style guidance from the style guide, or just common mistakes.
+
+<!-- ## UI and UX Style Guide 
 
 As time went on, I realized that we also hadn't created any guidance or consistency for creating UI copy or other UI elements. After doing a thorough review of the UI copy in the Couchbase Capella product, a coworker and I decided that we needed to record our decisions somehow. 
 
@@ -31,4 +36,4 @@ Next, my manager decided that we were going to introduce and roll out Pendo in C
 
 To ensure consistency, this required a great amount of detail, down to the individual settings for each guide type: [https://sarahlwelton.github.io/cb-vale-style-guide/pendo/index.html](https://sarahlwelton.github.io/cb-vale-style-guide/pendo/index.html).
 
-!["The main page of the Couchbase Pendo Style Guide."](../../img/couchbase-pendo-style-guide.png)
+!["The main page of the Couchbase Pendo Style Guide."](../../img/couchbase-pendo-style-guide.png) -->

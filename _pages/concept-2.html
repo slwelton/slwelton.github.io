@@ -1,0 +1,111 @@
+---
+layout: samples
+title: 'Concept - Vector Search Index Architecture'
+image:
+permalink: /concept-2/
+---
+
+<p>I wrote this conceptual topic while at Couchbase. It explains the architecture behind the indexes in our Vector Search offering, as part of the Search Service.</p>
+
+<h1>Vector Search Index Architecture</h1>
+
+<p>Vector Search indexes use features from traditional Search indexes, with unique indexing algorithms and features that allow you to compare vectors in nearest neighbor searches.</p>
+<div class="NOTE"><i class="far fa-sticky-note"></i><h5>Note</h5><p>You cannot use Vector Search on Windows platforms. You can use Vector Search on Linux from Couchbase Server version 7.6.0 and MacOS from version 7.6.2.</p>
+<p>You can still use other features of the Search Service.</p>
+</div>
+<br/>
+<p>A Vector Search index still relies on <a href="#sync">Synchronization with Database Change Protocol (DCP) and the Data Service</a> and uses <a href="#segments">Search Index Segments</a> to manage merging and persisting data to disk in your cluster. All changes from Database Change Protocol (DCP) and the Data Service are introduced to a Search index in batches, which are further managed by segments.</p>
+
+<h2 id="sync">Synchronization with Database Change Protocol (DCP) and the Data Service</h2>
+<p>The Search Service uses batches to process data that comes in from DCP and the Data Service. DCP and Data Service changes are introduced gradually, based on available memory on Search Service nodes, until reindexing operations for an index are complete.</p>
+<p>The Search Service can merge batches into a single batch before they're sent to the disk write queue, to reduce the resources required for batch processing.
+The Search Service maintains index snapshots on each Search index partition. These snapshots contain a representation of document mutations on either a write queue, or in storage.</p>
+<p>If the Search Service loses connection to the Data Service, the Search Service compares its rollback sequence numbers in its snapshots with the Data Service when the connection is reestablished. If the index snapshots on the Search Service are too far ahead, the Search Service performs a full rollback to get back in sync with the Data Service.</p>
+
+<h2 id="segments">Search Index Segments</h2>
+
+<p>Search and Vector Search indexes in Couchbase Server are built with segments.</p>
+<p>All Search indexes contain a root segment, which includes all data for the Search index but excludes any segments that might be stale. Stale segments are eventually removed by the Search Services's persister or merger routines.</p>
+<p>The persister reads in-memory segments from the disk write queue and flushes them to disk, completing batch operations as part of <a href="#sync">Synchronization with Database Change Protocol (DCP) and the Data Service</a>. The merger works with the persister to consolidate flushed files and flush the consolidated results back through the persister - while purging the smaller, older files.</p>
+<p>The persister and merger interact to continuously flush and merge new in-memory segments to disk, and remove stale segments.</p>
+<p>Segments are marked as stale when they're replaced by a new merged segment created by the merger. Stale segments are deleted when they're no longer used by any new queries.</p>
+<p>As smaller segments are merged together through the merger routine, the Search Service automatically runs any needed retraining for Vector Search indexes. The segments for a Vector Search index can contain different index types and use a separate indexing pipeline, choosing the appropriate indexing algorithm based on the size of your available documents.</p>
+
+<h2 id="vector-search-and-faiss">Vector Search and FAISS</h2>
+
+<p>Vector Search specifically uses <a href="https://faiss.ai/index.html">FAISS indexes</a>. Any vectors inside your documents are indexed using FAISS, to create a new query vector that can be searched for similar vectors inside your Vector Search index.</p>
+<p>Vector Search chooses the best <a href="https://github.com/facebookresearch/faiss/wiki/Faiss-indexes">FAISS index class</a>, or vector search algorithm, for your data, and automatically tunes parameters to provide a balance of recall and latency. You can choose to prioritize recall, latency, or memory efficiency with the <a href="https://docs.couchbase.com/server/current/search/child-field-options-reference.html#optimized">Optimized For setting</a> on your index. You can also choose to <a href="https://docs.couchbase.com/server/current/vector-search/fine-tune-vector-search.html">fine tune your Vector Search queries</a> to override the default balancing for your index, and change the number of centroids or probes searched in a query.</p>
+<p>The FAISS indexes created for your vector data can be:</p>
+<ul>
+<li><a href="#flat-indexes">FLAT Indexes</a></li>
+<li><a href="#inverted-file-index">Inverted File Index (IVF)</a></li>
+</ul>
+<p>The specific type of index used depends on the number of vectors in your dataset:</p>
+<table>
+  <thead>
+    <tr>
+      <th>Vector Count</th>
+      <th>Index Types</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>&gt;=10,000</td>
+      <td>IVF with scalar quantization</td>
+      <td>Vectors are indexed with <a href="#inverted-file-index">Inverted File Index (IVF) indexes</a> and <a href="#scalar-quant">Scalar Quantization</a>.
+        <br/>
+        If <a href="https://docs.couchbase.com/server/current/search/child-field-options-reference.html#optimized">Optimized For</a> is set to <strong>recall</strong> or <strong>latency</strong>, Vector Search uses 8bit scalar quantization. If set to memory-efficient, Vector Search uses 4bit scalar quantization.
+        </td>
+    </tr>
+    <tr>
+      <td>&gt;=1,000</td>
+      <td>IVF with Flat</td>
+      <td>Vectors are indexed with <a href="#inverted-file-index"></a>Inverted File Index (IVF) indexes</a> combined with <a href="#flat-indexes">FLAT Indexes</a>. Indexes do not use <a href="#scalar-quant">Scalar Quantization</a>.</td>
+    </tr>
+    <tr>
+      <td>&lt;1,000</td>
+      <td>Flat</td>
+      <td>Vectors are indexed with FLAT Indexes. Indexes do not use <a href="#scalar-quant">Scalar Quantization</a>.</td>
+    </tr>
+  </tbody>
+</table>
+<h3 id="flat-indexes">FLAT Indexes</h3>
+<p>The most basic kind of index that Vector Search can use for your vectors is a flat index.</p>
+<p>Vector Search uses flat indexes for data that contains less than 1000 vectors.</p>
+<p>Flat indexes are a list of vectors. Searches run on a nearest neighbor process, based on examining the query vector against each vector in the index and calculating the distance. Results for flat indexes are very accurate, but performance does not scale well as a dataset grows.</p>
+<p>If a Vector Search index uses only flat indexes, no training is required - IDs are mapped directly to vectors with exact vector comparisons, with no need for preprocessing or learning on the data.</p>
+<h3 id="inverted-file-index">Inverted File Index (IVF)</h3>
+<p>For reduced latency, Vector Search can also use Inverted File Indexes (IVF).</p>
+<p>Vector Search uses a combination of IVF and flat indexes for data that contains between 1000 and 9999 vectors. For even larger datasets, Vector Search uses IVF indexes with <a href="#scalar-quant">Scalar Quantization</a>.</p>
+<p>IVF creates partitions called Voronoi cells in an index. The total number of cells is the nlist parameter.</p>
+<p>Every cell has a centroid. Every vector in the processed dataset is assigned to a cell that corresponds to its nearest centroid.</p>
+<p>In an IVF index, Vector Search first tries to find a centroid vector closest to the query vector. After finding this closest centroid vector, Vector Search uses the default <code>nprobe</code> and <code>max_codes</code> values to search over adjoining cells to the closest centroid and finds the top k number of vectors.</p>
+<p>IVF index searches are not exhaustive searches. You can increase accuracy by changing the <code>max_nprobe_pct</code> parameter or <code>max_codes_pct</code> when you fine tune your Vector Search queries.</p>
+<p>The Search Service automatically trains larger IVF indexes to learn the data distribution of your vectors, and the centroids of cells in your dataset. The training data helps to encode and compress the vectors in your index with <a href="#scalar-quant">Scalar Quantization</a>. All training occurs during building and merging Search Index Segments.</p>
+<p>IVF indexes that also use flat indexing automatically train to determine the centroids of cells, but still use exact vector comparisons within each cell. Training still occurs while building and merging <a href="segments">Search Index Segments.</a></p>
+<h4 id="scalar-quant">Scalar Quantization</h4>
+<p>Vector Search uses scalar quantization on large datasets to reduce the size of your indexes.</p>
+<p>Scalar quantization is an important data compression technique that turns the floating point values that could be present in a large vector into low-dimensional integers. For example, a float32 value could be reduced to an int8 value.</p>
+<p>Scalar quantization in Vector Search does not have a significant effect on the recall, or accuracy, of query results on large datasets.</p>
+<p>Vector Search uses both 8bit and 4bit scalar quantization for indexes, based on your <a href="https://docs.couchbase.com/server/current/search/child-field-options-reference.html#optimized">Optimized For setting</a>.</p>
+<h3>Search Request Processing</h3>
+<p>The Search Service uses a scatter-gather process for running all Search queries, when there are multiple nodes in the cluster running the Search Service.</p>
+<p>The Search Service node that receives the Search request is assigned as the coordinating node. Using <a href="https://grpc.io/">gRPC</a>, the coordinating node scatters the request to all other partitions for the Search or Vector Search index in the request across other nodes. The coordinating node applies filters to the results received from the other partitions, and returns the final result set.
+Results are scored, and based on the <a href="https://docs.couchbase.com/server/current/search/search-request-params.html#sort">Sort Object</a> provided in the Search request, returned in a list.</p>
+<p>For a Vector Search query, search results include the top k nearest neighbor vectors to the vector in the Search query. For more information about how results are scored and returned for Search requests, see <a href="https://docs.couchbase.com/server/current/search/run-searches.html#scoring">Scoring for Search Queries.</a></p>
+<h2>See Also</h2>
+<ul>
+    <li>
+        <a href="https://docs.couchbase.com/server/current/vector-search/fine-tune-vector-search.html">Fine-Tuning a Vector Search Query</a>
+    </li>
+    <li>
+        <a href="https://docs.couchbase.com/server/current/search/search-request-params.html">Search Request JSON Properties</a>
+    </li>
+    <li>
+        <a href="https://docs.couchbase.com/server/current/vector-search/create-vector-search-index-rest-api.html">Create a Vector Search Index with the REST API and curl/HTTP</a>
+    </li>
+    <li>
+        <a href="https://docs.couchbase.com/server/current/vector-search/create-vector-search-index-ui.html">Create a Vector Search Index with the Server Web Console</a>
+    </li>
+</ul>

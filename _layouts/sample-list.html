@@ -14,11 +14,39 @@ layout: default
                 <div class="container">
                 <div class ="col col-12">
                 <div class="sample-section">
+                    <h2>Technical Documentation Samples</h2>
+                </div>
+                <div class="row">
+                    {% for page in site.pages %}
+                      {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' or page.name contains "content-design" %}
+                    {% if page.title %}
+                    <article class="article col col-12 col-t-6">
+                        <div class="article-box">
+                            <div class="article-head">
+                                <a href="{{ page.url | prepend: site.baseurl }}" class="article-image" style="background-image: url({{"/img/" | prepend: site.baseurl | append : page.image}})">
+                                    <div class="image-overlay">
+                                        <span class="image-overlay-text">{{page.title | slice: 0}}</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="article-content">
+                                <h2 class="article-title">
+                                    <a href="{{ page.url | prepend: site.baseurl }}">{{page.title}}</a>
+                                </h2>
+                                <p class="article-excerpt">{{ page.content | strip_html | truncate: 135 }}</p>
+                            </div>
+                        </div>
+                    </article>
+                    {% endif %}
+                      {% endunless %}
+                    {% endfor %}
+                </div>
+                <div class="sample-section">
                     <h2>Content Design Samples</h2>
                 </div>
                 <div class="row">
                     {% for page in site.pages %}
-                      {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' or page.name contains "api" or page.name contains "concept" or page.name contains "procedure" or page.name contains "reference" %}
+                      {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' or page.name contains "style-guide" or page.name contains "api" or page.name contains "concept" or page.name contains "procedure" or page.name contains "reference" %}
                     {% if page.title %}
                     <h2></h2>
                     <article class="article col col-12 col-t-6">
@@ -42,34 +70,6 @@ layout: default
                       {% endunless %}
                     {% endfor %}
                     </div>
-                <div class="sample-section">
-                    <h2>Technical Documentation Samples</h2>
-                </div>
-                <div class="row">
-                    {% for page in site.pages %}
-                      {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' or page.name contains "style-guide" or page.name contains "content-design" %}
-                    {% if page.title %}
-                    <article class="article col col-12 col-t-6">
-                        <div class="article-box">
-                            <div class="article-head">
-                                <a href="{{ page.url | prepend: site.baseurl }}" class="article-image" style="background-image: url({{"/img/" | prepend: site.baseurl | append : page.image}})">
-                                    <div class="image-overlay">
-                                        <span class="image-overlay-text">{{page.title | slice: 0}}</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="article-content">
-                                <h2 class="article-title">
-                                    <a href="{{ page.url | prepend: site.baseurl }}">{{page.title}}</a>
-                                </h2>
-                                <p class="article-excerpt">{{ page.content | strip_html | truncate: 135 }}</p>
-                            </div>
-                        </div>
-                    </article>
-                    {% endif %}
-                      {% endunless %}
-                    {% endfor %}
-                </div>
                 </div>
             </div>
             </div>

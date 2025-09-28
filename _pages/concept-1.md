@@ -1,6 +1,6 @@
 ---
 layout: samples
-title: 'Concept Documentation Writing Sample #1'
+title: 'Concept - Visual Scripting Graph Types'
 image: ../img/vs-understanding-nodes-example.png
 permalink: /concept/
 ---

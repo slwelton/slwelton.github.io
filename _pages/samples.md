@@ -1,6 +1,6 @@
 ---
 layout: sample-list
-title: Samples
+title: Portfolio
 permalink: /samples/
 ---
 
