@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Photography
-image: DSC_0694_1_crop.jpg
+image: River-0185-cropped.jpg
 permalink: /photography/
 ---
 I might get paid to write, but I like to take fancy-looking photos, too.
 
-For the best possible viewing experience, and to see the most up-to-date portfolio of my photographic work, please refer to my [500px profile](https://500px.com/sarahwelton) or my [Instagram](https://www.instagram.com/sarahcerabellum).
+For the best possible viewing experience, and to see the most up-to-date portfolio of my photographic work, please refer to my [500px profile](https://500px.com/sarahwelton).
 
-<img src="../img/large/DSC_0062.jpg"/>
+<img src="../img/Lynx-0789.jpg"/>
