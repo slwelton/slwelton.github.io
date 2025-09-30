@@ -3,6 +3,7 @@ layout: samples
 title: 'Reference - Shader Graph Node Reference'
 image: ../img/sg-calculate-level-detail-texture-2d-node.png
 permalink: /reference/
+page-order: 7
 ---
 
 I wrote this reference topic as a part of the Node Library for Shader Graph at Unity Technologies. It lays out the information a user would need to use the node in a Shader Graph file.

@@ -1,8 +1,9 @@
 ---
 layout: samples
-title: 'Couchbase Style Guide Samples'
+title: 'Couchbase Documentation Style Guide'
 image: ../img/couchbase-docs-style-guide.png
 permalink: /style-guide/
+page-order: 2
 ---
 
 One of my first major tasks at Couchbase was creating a style guide, to try and get the 10+ person writing team working with greater consistency. 

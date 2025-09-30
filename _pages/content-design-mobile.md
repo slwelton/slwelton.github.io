@@ -3,6 +3,7 @@ layout: samples
 title: 'Content Design Sample #2 - Mobile App Copy'
 image: ../img/jobpay-onboarding-1.png
 permalink: /content-design-mobile/
+page-order: 2
 ---
 
 The following is a brief breakdown of mobile app UI copy that I created as a final capstone project for the [UX Writing Fundamentals](https://uxcontent.com/uxwc-the-fundamentals-course/) course offered by the UX Content Collective. The course was designed to provide an overview of what it's like to work in the content design discipline, breaking down the fundamentals of good UX writing practice and providing an opportunity to write all the copy for an imaginary application. 

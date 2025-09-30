@@ -17,7 +17,8 @@ layout: default
                     <h2>Technical Documentation Samples</h2>
                 </div>
                 <div class="row">
-                    {% for page in site.pages %}
+                    {% assign sorted_pages = site.pages | sort: 'page-order' %}
+                    {% for page in sorted_pages %}
                       {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' or page.name contains "content-design" %}
                     {% if page.title %}
                     <article class="article col col-12 col-t-6">
@@ -45,7 +46,8 @@ layout: default
                     <h2>Content Design Samples</h2>
                 </div>
                 <div class="row">
-                    {% for page in site.pages %}
+                    {% assign sorted_pages = site.pages | sort: 'page-order' %}
+                    {% for page in sorted_pages %}
                       {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' or page.name contains "style-guide" or page.name contains "api" or page.name contains "concept" or page.name contains "procedure" or page.name contains "reference" %}
                     {% if page.title %}
                     <h2></h2>

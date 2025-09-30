@@ -3,6 +3,7 @@ layout: samples
 title: 'API Documentation - GET Access Token'
 image: 
 permalink: /api/
+page-order: 3
 ---
 
 The following is an example that shows how a user could connect with a basic Token API to a web application. 

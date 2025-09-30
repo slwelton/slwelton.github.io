@@ -3,6 +3,7 @@ layout: samples
 title: 'Concept - Visual Scripting Graph Types'
 image: ../img/vs-understanding-nodes-example.png
 permalink: /concept/
+page-order: 4
 ---
 
 I wrote this conceptual topic while I was at Unity Technologies. It explains the two different types of graphs used in Visual Scripting.
