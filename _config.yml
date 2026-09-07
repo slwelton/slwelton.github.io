@@ -1,8 +1,8 @@
 #-------------------------------
 # General Site Settings
 
-title: Welton Writes
-description: English/Art/Code - This is the home of Welton Writes, a blog and portfolio for Sarah Emmett. # this means to ignore newlines until "baseurl:"
+title: Emmett Writes
+description: English/Art/Code - This is the home of Emmett Writes, a blog and portfolio for Sarah Emmett. # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://slwelton.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -24,7 +24,7 @@ linkedin: https://www.linkedin.com/in/sarah-welton-emmett/
 
 #-------------------------------
 # Comment Section (Disqus)
-disqus-identifier:  https-slwelton-github-io # Add your shortname for Disqus Comment. For example mr-brown
+# disqus-identifier:  https-slwelton-github-io # Add your shortname for Disqus Comment. For example mr-brown
 
 
 #-------------------------------
