@@ -158,18 +158,6 @@ blockquote {
   }
 }
 
-
-// Pre
-pre {
-  overflow: auto;
-  padding: 15px;
-  margin-bottom: 0;
-  font-size: 14px;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  word-break: break-all;
-}
-
 // Table
 .table-container {
   max-width: 100%;
@@ -211,12 +199,13 @@ table td {
 // Notes and Tips 
 
 div.NOTE {
-  padding: 15px;
+  padding: 10px 15px;
   border: 1px solid transparent;
   border-radius: 4px;
   color:#31708f;
   background-color:#d9edf7;
   border-color: #bce8f1;
+  margin-bottom: 15px;
 }
 
 // Special 
@@ -224,4 +213,84 @@ div.NOTE {
 div.sample-section {
   border-bottom: 2px solid #3E4250;
   margin-bottom: 40px;
+}
+
+// Synced tabs
+
+div.tabs {
+  margin: 1.5rem 0;
+
+  // Tab bar: the <ul> becomes a horizontal row of tabs
+  .tablist ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid $border-color;
+  }
+
+  .tablist li.tab {
+    margin: 0;
+    padding: 0.5rem 1rem;
+    position: relative;
+    bottom: -1px; // overlap the bar's bottom border
+    cursor: pointer;
+    user-select: none;
+    background: $blue-darken;
+    border: 1px solid $border-color;
+    border-top: 2px solid transparent;
+    border-bottom: 1px solid $border-color;
+    border-radius: 6px 6px 0 0;
+    color: $gray-blue;
+    transition: background-color 0.15s ease, color 0.15s ease;
+
+    > p {
+      margin: 0;
+      font-weight: 600;
+      color: inherit;
+    }
+
+    &:hover {
+      background: $lighten-black;
+      color: $text;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $link-color-hover;
+      outline-offset: 2px;
+    }
+
+    &.is-active {
+      background: $background;
+      color: $primary-color;
+      border-top-color: $primary-color;
+      border-bottom-color: $background;
+    }
+  }
+
+  // Panels: only the active one is shown
+  .tabpanel {
+    padding: 1rem;
+    background: $background;
+    color: $text;
+    border: 1px solid $border-color;
+    border-top: none;
+
+    &[hidden] {
+      display: none !important;
+    }
+
+    // No stray bottom margin from the last block in a panel
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // Avoid a flash of every panel before the JS runs.
+  // Hides all panels until the script removes .is-loading.
+  &.is-loading .tabpanel {
+    display: none;
+  }
 }

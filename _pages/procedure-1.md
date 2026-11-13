@@ -3,7 +3,7 @@ layout: samples
 title: 'Procedure - Open Visual Scripting Graph'
 image: ../img/vs-open-project-window-graph-files.png
 permalink: /procedure/
-page-order: 5
+page-order: 6
 ---
 
 I wrote this procedure while I was at Unity Technologies. It describes how to open a Visual Scripting graph file from multiple locations inside the Unity Editor. 

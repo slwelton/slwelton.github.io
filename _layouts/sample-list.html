@@ -48,7 +48,7 @@ layout: default
                 <div class="row">
                     {% assign sorted_pages = site.pages | sort: 'page-order' %}
                     {% for page in sorted_pages %}
-                      {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' or page.name contains "style-guide" or page.name contains "api" or page.name contains "concept" or page.name contains "procedure" or page.name contains "reference" %}
+                      {% unless page.name == 'tags.html' or page.name == '404.html' or page.name =='about.md' or page.name =='photography.md' or page.name =='samples.md' or page.name contains "style-guide" or page.name contains "api" or page.name contains "concept" or page.name contains "procedure" or page.name contains "reference" or page.name contains "ai" %}
                     {% if page.title %}
                     <h2></h2>
                     <article class="article col col-12 col-t-6">

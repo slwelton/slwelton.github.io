@@ -1,0 +1,94 @@
+// ---- Code blocks (anywhere on the page, inside tabs or not) ---------------
+
+pre {
+  margin: 1rem 0;
+  padding: 0;
+  background: $blue-darken;
+  border: 1px solid $border-color;
+  border-radius: 6px;
+  overflow-x: auto;
+
+  // Only <pre> elements that contain <code> get the code-block treatment
+  // below; the border and background above apply to every <pre>.
+  code {
+    display: block;
+    padding: 1rem;
+    background: transparent;
+    color: $text;
+    font-size: 0.875em;
+    line-height: 1.5;
+    white-space: pre;
+    border: 0;
+
+    // highlight.js token colours, built from the site palette
+    .hljs-comment,
+    .hljs-quote,
+    .hljs-meta {
+      color: $gray-blue;
+    }
+
+    .hljs-comment,
+    .hljs-quote {
+      font-style: italic;
+    }
+
+    .hljs-keyword,
+    .hljs-selector-tag,
+    .hljs-doctag,
+    .hljs-operator {
+      color: $secondary-color;
+    }
+
+    .hljs-string,
+    .hljs-regexp,
+    .hljs-template-tag {
+      color: $primary-color;
+    }
+
+    .hljs-number,
+    .hljs-literal,
+    .hljs-symbol,
+    .hljs-bullet {
+      color: $highlight;
+    }
+
+    .hljs-title,
+    .hljs-section,
+    .hljs-function .hljs-title {
+      color: $link-color-hover;
+    }
+
+    .hljs-built_in,
+    .hljs-type,
+    .hljs-class .hljs-title,
+    .hljs-attr,
+    .hljs-attribute,
+    .hljs-variable,
+    .hljs-template-variable,
+    .hljs-selector-class,
+    .hljs-selector-id {
+      color: lighten($secondary-color, 10%);
+    }
+
+    .hljs-params,
+    .hljs-subst {
+      color: $text;
+    }
+
+    .hljs-addition {
+      color: $success;
+    }
+
+    .hljs-deletion {
+      color: $danger;
+    }
+
+    .hljs-emphasis {
+      font-style: italic;
+    }
+
+    .hljs-strong {
+      font-weight: bold;
+    }
+  }
+}
