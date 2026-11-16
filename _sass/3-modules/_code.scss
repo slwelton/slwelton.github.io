@@ -92,3 +92,85 @@ pre {
     }
   }
 }
+
+/* copy-code.css
+   Styles for the copy button injected by copy-code.js.
+   The button uses semi-transparent colours so it works on both light and dark
+   highlight.js themes. Override the custom properties below to match your site. */
+
+$copy-btn-bg: $lighten-black;
+$copy-btn-bg-hover: lighten($lighten-black, 6%);
+$copy-btn-fg: $text;
+$copy-btn-border: $border-color;
+
+.code-block {
+  position: relative;
+  margin: 1em 0;
+
+  // Remove the browser's default margin on pre so the wrapper hugs the block;
+  // the wrapper carries the spacing instead. Adjust to your site's spacing.
+  > pre {
+    margin: 0;
+
+    // Leave room so the button doesn't cover the first line of code.
+    > code {
+      padding-top: 2.5rem;
+    }
+  }
+}
+
+.copy-code-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.6rem;
+
+  font: inherit;
+  font-size: 0.8125rem;
+  line-height: 1;
+  color: $copy-btn-fg;
+  background: $copy-btn-bg;
+  border: 1px solid $copy-btn-border;
+  border-radius: 0.375rem;
+  cursor: pointer;
+
+  transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    color: $white;
+    background: $copy-btn-bg-hover;
+    border-color: $primary-color;
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary-color;
+    outline-offset: 2px;
+  }
+
+  &__icon {
+    flex: none;
+  }
+
+  &[data-state="copied"] {
+    color: $success;
+    border-color: $success;
+  }
+
+  &[data-state="error"] {
+    color: $danger;
+    border-color: $danger;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+
+  @media print {
+    display: none;
+  }
+}
