@@ -11,7 +11,8 @@ One of my first major tasks at Couchbase was creating a style guide, to try and 
 The first iteration of the style guide was posted on my work GitHub account.
 I created the theme based on the default Antora site theme, adding in some Couchbase styling and elements from the main documentation site. 
 
-You can find that initial version of the style guide at [https://sarahlwelton.github.io/cb-vale-style-guide/styleguide/index.html](https://sarahlwelton.github.io/cb-vale-style-guide/styleguide/index.html). 
+You can find that initial version of the style guide at [https://sarahlwelton.github.io/styleguide/index.html](https://sarahlwelton.github.io/styleguide/index.html).
+Use the version switcher at the bottom of the table of contents to switch to the first versions of the Pendo or UX Writing style guides.
 
 After some management changeover and a little more of a serious talk about the importance of the style guide, we incorporated the style guide into our contributor's guide on the main documentation website: [https://docs.couchbase.com/styleguide/index.html](https://docs.couchbase.com/styleguide/index.html).
 
